@@ -1,0 +1,11 @@
+.calendar {
+  width: 100%;
+  min-width: 28rem;
+  height: calc(55% - 2rem);
+  background-color: #111214;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
