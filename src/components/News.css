@@ -13,11 +13,69 @@
   width: 100%;
   min-height: 7rem;
   background-color: #111214;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
   border-radius: 1rem 1rem 0 0;
   -webkit-border-radius: 1rem 1rem 0 0;
   -moz-border-radius: 1rem 1rem 0 0;
   -ms-border-radius: 1rem 1rem 0 0;
   -o-border-radius: 1rem 1rem 0 0;
+}
+
+.logo{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: #ddd;
+  letter-spacing: 0.2rem;
+
+}
+
+.search-bar{
+  position: relative;
+}
+
+.search-bar input {
+  width: 25rem;
+  height: 4rem;
+  background-color: #060709;
+  color: #ddd;
+  border: none;
+  padding: 0 4rem 0 2rem;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+  transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  -ms-transition: width 0.3s;
+  -o-transition: width 0.3s;
+}
+
+.search-bar input:focus{
+  width: 35rem;
+}
+
+.search-bar input:focus::placeholder{
+  color: transparent;
+}
+
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  color: #bbb;
+  position: absolute;
+  font-size: 1.7rem;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .news-content {
