@@ -5,6 +5,7 @@ import "./News.css";
 import userImg from "../assets/images/user.jpg";
 import noImg from "../assets/images/no-img.png";
 import axios from "axios";
+import NewsModal from "./NewsModal";
 
 const categories = [
   "general",
@@ -23,6 +24,8 @@ function News() {
   const [selectedCategory, setSelectedCategory] = useState("general");
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -55,6 +58,11 @@ function News() {
     event.preventDefault();
     setSearchQuery(searchInput);
     setSearchInput("");
+  };
+
+  const handelArticleClick = (article) => {
+    setSelectedArticle(article);
+    setShowModal(true);
   };
 
   return (
@@ -103,7 +111,7 @@ function News() {
         </div>
         <div className="news-section">
           {headline && (
-            <div className="headline">
+            <div className="headline" onClick={() => handelArticleClick(headline)}>
               <img src={headline.image || noImg} alt="" />
               <h2 className="headline-title">
                 {headline.title}
@@ -114,7 +122,7 @@ function News() {
 
           <div className="news-grid">
             {news.map((article, index) => (
-              <div key={index + 1} className="news-grid-item">
+              <div key={index + 1} className="news-grid-item" onClick={() => handelArticleClick(article)}>
                 <img src={article.image || noImg} alt={article.title} />
                 <h3>
                   {article.title}
@@ -124,6 +132,11 @@ function News() {
             ))}
           </div>
         </div>
+        <NewsModal
+          show={showModal}
+          article={selectedArticle}
+          onClose={() => setShowModal(false)}
+        />
         <div className="my-blogs"></div>
         <div className="weather-calendar">
           <Weather />
